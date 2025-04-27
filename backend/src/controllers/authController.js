@@ -1,4 +1,4 @@
-import User from "../models/user.js"
+import User from "../models/User.js"
 import bcrypt from "bcryptjs"
 import {generateToken} from "../lib/utils.js"
 
@@ -96,6 +96,15 @@ export const updateProfile = async (req,res) => {
         res.status(200).json(updatedUser);
     }catch(err){
         console.log("Error in updateProfile controller",err.message);
+        res.status(500).json({message:"Internal server error"});
+    }
+}
+
+export const checkAuth = (req,res) => {
+    try{
+        res.status(200).json(req.user);
+    }catch(err){
+        console.log("Error in checkAuth controller",err.message);
         res.status(500).json({message:"Internal server error"});
     }
 }
