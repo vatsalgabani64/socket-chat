@@ -3,7 +3,7 @@ import {Loader} from 'lucide-react'
 import { Navigate, Route, Routes } from 'react-router-dom'
 import Navbar from './components/Navbar.jsx';
 import HomePage from './pages/HomePage.jsx';
-import SignupPage from './pages/SignupPage.jsx';
+import SignupPage from './pages/SignUpPage.jsx';
 import LoginPage from './pages/LoginPage.jsx';
 import SettingsPage from './pages/SettingsPage.jsx';
 import ProfilePage from './pages/ProfilePage.jsx';
@@ -12,8 +12,9 @@ import { useThemeStore } from './store/useThemeStore.js';
 import { Toaster } from 'react-hot-toast';
 
 const App = () => {
-  const {authUser,checkAuth,isCheckingAuth} = useAuthStore();
+  const {authUser,checkAuth,isCheckingAuth,onlineUsers} = useAuthStore();
 
+  console.log('onlineUsers', onlineUsers);
   const {theme} = useThemeStore();
   useEffect(() => { 
     console.log('theme', theme);
